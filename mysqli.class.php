@@ -63,7 +63,9 @@ class DB
 	*/
 	public function  __construct($db) {
 		$this->mysqli = new mysqli($db['host'], $db['user'], $db['pass'], $db['table']);
-
+		//for UTF-8 connections
+		mysqli_set_charset($this->mysqli, "utf8");
+		
 		if (mysqli_connect_errno()) 
 		{
 			printf("<b>Connection failed:</b> %s\n", mysqli_connect_error());
